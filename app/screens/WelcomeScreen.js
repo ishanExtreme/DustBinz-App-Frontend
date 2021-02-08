@@ -16,7 +16,8 @@ function WelcomeScreen({navigation}) {
         {/* <Text style={styles.tagline}>Dustbin Locator</Text> */}
         </View>
         <View style={styles.buttonsContainer}>
-        <LongButton title="Login" onPress={()=> console.log("Login")} />
+        <LongButton title="Locate Dustbin" onPress={()=> console.log("Locate")} color="primary"/>
+        <LongButton title="Login" onPress={()=> console.log("Login")} color="secondary"/>
         <LongButton title="Register" onPress={()=> console.log("Register")} color="secondary"/>
         </View>
         </ImageBackground>
