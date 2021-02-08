@@ -7,7 +7,7 @@ import Screen from '../components/Screen';
 import SocialTray from '../components/SocialTray';
 import defaultStyles from '../config/styles'; 
 
-function LoginScreen(props) {
+function RegisterScreen(props) {
     return (
         <Screen style={styles.container}>
 
@@ -16,12 +16,20 @@ function LoginScreen(props) {
             source={require("../../assets/logo.png")}/>
 
             <AppTextInput
+            name="name"
+            icon="account"
+            autoCapitalize="none"
+            autoCorrect={false}
+            placeholder="Name"/>
+
+            <AppTextInput
             icon="email"
             autoCapitalize="none"
             autoCorrect={false}
             keyboardType="email-address"
             placeholder="Email"
-            textContentType="emailAddress"/>
+            textContentType="emailAddress"
+            />
 
             <AppTextInput
             icon="lock"
@@ -32,7 +40,7 @@ function LoginScreen(props) {
             secureTextEntry
             />
 
-            <LongButton title="LogIn" onPress={()=>console.log("Submit Pressed")}/>
+            <LongButton title="Register" onPress={()=>console.log("Register Pressed")}/>
             
                 <Text style={[defaultStyles.text, styles.text]}>OR</Text>
     
@@ -58,4 +66,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default LoginScreen;
+export default RegisterScreen;
