@@ -51,11 +51,15 @@ function AccountEditScreen({navigation}) {
         if(userInfo.image !== null)
         {
             const {image} = userInfo;
+            const name = image.uri.substring(image.uri.lastIndexOf('/')+1);
+            let type = name.split('.');
+            type = type[type.length-1];
+
             const data = new FormData();
             data.append('image', {
                 uri: image.uri,
-                type: 'image/jpeg',
-                name: "userImage"
+                type: `image/${type}`,
+                name: name
             });
 
             result = await uploadImageApi.request(data);
