@@ -1,16 +1,19 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Modal, Linking } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import colors from '../config/colors';
 
-function SocialTray({onPress}) {
+
+
+function SocialTray({onPress, OnGoogleLogin}) {
+    
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={onPress}>
                 <MaterialCommunityIcons name="facebook" size={50} color={colors.secondary_text} style={styles.icon} />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={onPress}>
+            <TouchableOpacity onPress={OnGoogleLogin}>
                 <MaterialCommunityIcons name="google" size={50} color={colors.secondary_text} style={styles.icon} />
             </TouchableOpacity>
 
@@ -37,7 +40,18 @@ const styles = StyleSheet.create({
 
     icon: {
         marginRight: 20,
-    }
+    },
+    modal : {
+        flex : 1,
+        justifyContent : 'center',
+        alignItems : 'center',
+        backgroundColor: 'rgba(0,0,0,0.5)'
+    },
+    modalContainer : {
+        backgroundColor : 'white',
+        width : '90%',
+        height : '90%',
+    },
 })
 
 export default SocialTray;

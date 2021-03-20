@@ -10,4 +10,8 @@ export default {
     secondary_text: "#161712",
 
     medium: "#6e6969",
+    white: "#fff",
+    light: "#f8f4f4",
+
+    light_backgound: "#a6a6a6"
 }
