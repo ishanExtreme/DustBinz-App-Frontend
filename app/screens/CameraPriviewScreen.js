@@ -1,21 +1,24 @@
 import React from 'react';
-import { StyleSheet, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Image } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import colors from '../config/colors';
 
-function CameraPriviewScreen(props) {
+function CameraPriviewScreen({route}) {
     return (
         <View style={styles.container}>
 
+        <Image source={{uri:route.params.photo.uri}}
+                style={styles.image}
+                />
+
             <View style={styles.buttonContainer}>   
-        
-                <TouchableOpacity
-                style={styles.button}
-                onPress={() => {
-                    console.log("Submit Pressed")
-                }}>
-                <MaterialCommunityIcons name="send-circle" size={80} color={colors.primary_light}/>
-                </TouchableOpacity>
+                    <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => {
+                        console.log("Submit Pressed")
+                    }}>
+                    <MaterialCommunityIcons name="send-circle" size={80} color={colors.primary_light}/>
+                    </TouchableOpacity>
 
             </View>
 
@@ -37,8 +40,11 @@ const styles = StyleSheet.create({
     },
     button: {
         alignSelf: 'flex-end',
-        marginHorizontal: 30
+        marginHorizontal: 30,
     },
+    image: {
+        flex: 6
+    }
 })
 
 export default CameraPriviewScreen;

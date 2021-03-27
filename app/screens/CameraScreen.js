@@ -7,7 +7,9 @@ import colors from '../config/colors';
 function CameraScreen({navigation}) {
 
   const [hasPermission, setHasPermission] = useState(null);
-  const [flashOn, setFlashOn] = useState(false);
+  const [flash, setFlashOn] = useState("off");
+  // click button only when camera is ready
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -24,23 +26,45 @@ function CameraScreen({navigation}) {
   }
 
   const toogleFlash = ()=>{
-    setFlashOn(!flashOn);
+    setFlashOn(flash==="on"?"off":"on");
+  }
+
+  const changeReady = ()=>{
+    setReady(!ready);
+  }
+
+  const takePicture = async ()=>{
+    if (!this.camera) return;
+    let photo = await this.camera.takePictureAsync({
+      // ****** DOESN'T WORKS ON IOS *********** //
+      skipProcessing: true,
+
+    });
+    navigation.navigate('Preview',{photo});
   }
 
   return (
     <View style={styles.container}>
-      <Camera style={styles.camera}>
+      <Camera
+      ref={ref=>{
+        this.camera = ref;
+      }}
+      flashMode={flash} 
+      style={styles.camera}
+      onCameraReady={changeReady}>
         <View style={styles.buttonContainer}>
 
         <TouchableOpacity
             style={styles.button}
             onPress={toogleFlash}>
-            <MaterialCommunityIcons name={flashOn?'flash':'flash-off'} size={50} color={colors.light}/>
+            <MaterialCommunityIcons name={flash==="on"?'flash':'flash-off'} size={50} color={colors.light}/>
         </TouchableOpacity>
         
         <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Preview')}>
+        disable={ready}
+        // navigation.navigate('Preview')
+        onPress={takePicture}>
         <MaterialCommunityIcons name="camera" size={50} color={colors.light}/>
         </TouchableOpacity>
 
