@@ -61,8 +61,7 @@ function AccountEditScreen({navigation}) {
                 type: `image/${type}`,
                 name: name
             });
-            console.log(data);
-
+        
             result = await uploadImageApi.request(data);
 
             if (!result.ok) {
