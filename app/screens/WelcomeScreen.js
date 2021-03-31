@@ -1,6 +1,8 @@
+import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
 import { ImageBackground, StyleSheet, View, Image, Text } from 'react-native';
 import  LongButton from '../components/LongButton'
+import gradient from '../config/gradients';
 
 function WelcomeScreen({navigation}) {
     return (
@@ -10,14 +12,16 @@ function WelcomeScreen({navigation}) {
         style={styles.background} 
         source={require('../../assets/background.png')}
         >
+
         <View style={styles.loginContainer}>
 
         <Image style={styles.logo} source={require('../../assets/logo.png')}/>
         {/* <Text style={styles.tagline}>Dustbin Locator</Text> */}
         </View>
         <View style={styles.buttonsContainer}>
-        <LongButton title="Login" onPress={()=> console.log("Login")} />
-        <LongButton title="Register" onPress={()=> console.log("Register")} color="secondary"/>
+        <LongButton title="Locate Dustbin" onPress={()=> navigation.navigate("Locate")} color="primary"/>
+        <LongButton title="Login" onPress={()=> navigation.navigate("Login")} color="secondary"/>
+        <LongButton title="Register" onPress={()=> navigation.navigate("Register")} color="secondary"/>
         </View>
         </ImageBackground>
     );
