@@ -27,6 +27,7 @@ import { useState } from 'react';
 import FilePicker from './app/components/FilePicker';
 import AccountEditScreen from './app/screens/AccountEditScreen';
 import ChangePassword from './app/components/ChangePassword';
+import Ratings from './app/components/Ratings';
 
 
 export default function App() {
@@ -35,7 +36,7 @@ export default function App() {
     const user = await authStorage.getUser();
 
     if(user){
-      user.image = `https://dustbinz.s3.amazonaws.com/${user.imageKey}`;
+      user.image = `https://dustbinz-app.s3.ap-south-1.amazonaws.com/${user.imageKey}`;
       setUser(user);
     }
 
@@ -49,9 +50,6 @@ export default function App() {
         {user?<HomeNavigator/>:<AuthNavigator />}
       </NavigationContainer>
     </AuthContext.Provider>
-    // <ChangePassword />
-
-
 
     )
 }
