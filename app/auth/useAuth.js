@@ -9,7 +9,9 @@ export default useAuth = () => {
 
   const login = (authToken) => {
     let user = jwtDecode(authToken);
-    user.image = `https://dustbinz.s3.amazonaws.com/${user.imageKey}`
+    //Note-> if change here change in App.js too
+    //TODO: Remove hardcore string
+    user.image = `https://dustbinz-app.s3.ap-south-1.amazonaws.com/${user.imageKey}`
     setUser(user);
     authStorage.storeToken(authToken);
   };

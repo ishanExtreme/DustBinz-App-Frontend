@@ -4,9 +4,6 @@ import * as WebBrowser from 'expo-web-browser';
 
 export default async ()=>{
 
-    WebBrowser.maybeCompleteAuthSession({
-        skipRedirectCheck:true
-    })
     // get the url of the app
     const path = AuthSession.makeRedirectUri();
 
