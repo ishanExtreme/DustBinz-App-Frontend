@@ -16,7 +16,7 @@ const map_location = [
     {
         title: "dustbin-1",
         description: "5 star dustbin",
-        icon: require('../../assets/icons/bin_marker.png'),
+        icon: {url: "https://dustbinz-app.s3.ap-south-1.amazonaws.com/Icons/bin_marker.png"},
         coordinate: {
             latitude: 26.939307,
             longitude: 80.942638
@@ -32,7 +32,7 @@ const map_location = [
     {
         title: "dustbin-2",
         description: "4 star dustbin",
-        icon: require('../../assets/icons/bin_marker.png'),
+        icon: {url: "https://dustbinz-app.s3.ap-south-1.amazonaws.com/Icons/bin_marker.png"},
         coordinate: {
             latitude: 26.939394, 
             longitude: 80.943659
@@ -48,7 +48,7 @@ const map_location = [
     {
         title: "dustbin-3",
         description: "3 star dustbin",
-        icon: require('../../assets/icons/bin_marker.png'),
+        icon: {url: "https://dustbinz-app.s3.ap-south-1.amazonaws.com/Icons/bin_marker.png"},
         coordinate: {
             latitude: 26.939480, 
             longitude: 80.942245
@@ -58,6 +58,57 @@ const map_location = [
 
             rating: 3,
             distance: "200 m"
+        }
+
+    },
+
+    {
+        title: "ishi-1",
+        description: "3 star cleanliness",
+        icon: {url: "https://dustbinz-app.s3.ap-south-1.amazonaws.com/Icons/bin_marker.png"},
+        coordinate: {
+            latitude: 26.86492, 
+            longitude: 80.9629
+        },
+        details:
+        {
+
+            rating: 3,
+            distance: "100 m"
+        }
+
+    },
+
+    {
+        title: "ishi-2",
+        description: "5 star cleanliness",
+        icon: {url: "https://dustbinz-app.s3.ap-south-1.amazonaws.com/Icons/bin_marker.png"},
+        coordinate: {
+            latitude: 26.86418, 
+            longitude: 80.9665
+        },
+        details:
+        {
+
+            rating: 5,
+            distance: "500 m"
+        }
+
+    },
+
+    {
+        title: "ishi-3",
+        description: "4 star cleanliness",
+        icon: require('../../assets/icons/bin_marker.png'),
+        coordinate: {
+            latitude: 26.864889, 
+            longitude: 80.9756
+        },
+        details:
+        {
+
+            rating: 4,
+            distance: "100 m"
         }
 
     },
@@ -82,7 +133,7 @@ function Map(props) {
                     key={index}
                     title={dustbin.title}
                     description={dustbin.description}
-                    icon={dustbin.icon}
+                    image={{uri: "https://dustbinz-app.s3.ap-south-1.amazonaws.com/Icons/bin_marker.png"}}
                     coordinate={dustbin.coordinate}
                     onPress={()=>setBinDetails(dustbin.details)}/>
                 ))}

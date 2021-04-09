@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "DustBinz",
+    "scheme": "exp",
     "slug": "DustBinz",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -28,6 +29,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "Hosted Backend is having issues with AWS S3 bucket and google OAuth"
+    "description": "DEMO"
   }
 }
