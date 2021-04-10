@@ -30,7 +30,7 @@ This repo contains the code for the frontend of the DustBinz APP.
 
 * React Native
 * Expo
-* Google Maps
+* Google Maps: for displaying bin locations on MAP and also for getting GPS direcetion
 * Formik: for handling forms
 * apisauce: for handlig API's
 * yup: for validations
